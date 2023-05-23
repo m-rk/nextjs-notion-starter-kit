@@ -2,6 +2,22 @@
   box-sizing: border-box;
 }
 
+:root {
+  --font-sans-custom: Rubik, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', 'Noto Sans', sans-serif;
+  --font-sans-system: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', 'Noto Sans', sans-serif;
+}
+
+@font-face {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 300;
+  src: local("Rubik Light"), local("Rubik-Light"), url(../public/fonts/Rubik/Rubik-Light.ttf) format("woff2");
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -14,10 +30,7 @@ html {
 }
 
 body {
-  --notion-font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', 'Noto Sans', sans-serif;
-  font-family: var(--notion-font);
+  font-family: var(--font-sans-system);
   overflow-x: hidden;
 }
 
