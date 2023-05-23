@@ -1,23 +1,52 @@
 import * as React from 'react'
 
-import { NotionPage } from '@/components/NotionPage'
-import { domain } from '@/lib/config'
-import { resolveNotionPage } from '@/lib/resolve-notion-page'
+export default function Home() {
+  return (
+    <>
+      <style>{`
+        body {
+          margin: 0;
+          padding: 0;
+          background: black;
+        }
 
-export const getStaticProps = async () => {
-  try {
-    const props = await resolveNotionPage(domain)
+        h1 {
+            position: absolute;
+            bottom: 0;
+            z-index: 10;
+            width: 100%;
+            overflow: hidden;
+            margin: 0 0 10vh 0;
+            opacity: 0.8;
+        }
 
-    return { props, revalidate: 10 }
-  } catch (err) {
-    console.error('page error', domain, err)
+        h1 img {
+            height: 30vh;
+        }
+      `}</style>
+      <h1><img src="/tangle-fade.svg" alt="Tangle" /></h1>
 
-    // we don't want to publish the error version of this page, so
-    // let next.js know explicitly that incremental SSG failed
-    throw err
-  }
-}
-
-export default function NotionDomainPage(props) {
-  return <NotionPage {...props} />
+      <script src="/js/jquery.js"></script>
+      <script src="/js/jquery.backstretch.min.js"></script>
+      <script
+      dangerouslySetInnerHTML={{
+        __html: `
+$.backstretch([
+  'bg/carrizo.png',
+  'bg/chicago.png',
+  'bg/vietnam.png',
+  'bg/parkerville.png',
+], {
+  width: 400,
+  alignX: 'center',
+  alignY: '0.8',
+  duration: 30000,
+  fade: 5000,
+  fadeFirst: false
+});
+  `
+}}
+            />
+    </>
+  );
 }
